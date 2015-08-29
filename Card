@@ -1,0 +1,34 @@
+package com.star.cards;
+
+public class Card 
+{
+	private static int rank;
+	private static int suit;
+	
+	private String [] suits = {"Clubs", "Spades", "Diamonds", "Hearts"};
+	private String [] numbers = {"Ace", "2", "3", "4", "5", "6", "7","8",
+								"9", "10", "Jack", "Queen", "King"};
+	
+	
+	public Card(int suit, int rank)
+	{
+		this.rank = rank;
+		this.suit = suit;
+	}
+
+	public String stringOf()
+	{
+		return numbers[rank] + " of " + suits[suit];
+	}
+	
+	
+	public static int getSuit()
+	{
+		return suit;
+	}
+	
+	public static int getRank()
+	{
+		return rank;
+	}
+}
