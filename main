@@ -1,0 +1,15 @@
+package com.star.spades;
+
+import com.star.cards.Card;
+import com.star.cards.Deck;
+
+public class main {
+
+	public static void main(String[] args) {
+		Deck deck = new Deck();
+		Card randCard = deck.drawCard();
+		
+		System.out.print(randCard);
+	}
+
+}
