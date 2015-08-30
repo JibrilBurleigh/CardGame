@@ -1,15 +1,23 @@
+//TODO: FIX NULL POINTER EXCEPTION ISSUE
+
 package com.star.spades;
 
 import com.star.cards.Card;
 import com.star.cards.Deck;
 
-public class main {
+public class Spades {
 
 	public static void main(String[] args) {
 		Deck deck = new Deck();
 		Card randCard = deck.drawCard();
 		
-		System.out.print(randCard);
+		System.out.print(deck.length);
+		
+		for(int i = 0; i < deck.length -1 ; i++)
+			System.out.println(randCard);
+
 	}
 
 }
+
+
