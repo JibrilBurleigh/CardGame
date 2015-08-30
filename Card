@@ -1,34 +1,43 @@
+//TODO: FIX NULL POINTER EXCEPTION ISSUE
+
 package com.star.cards;
 
 public class Card 
 {
-	private static int rank;
-	private static int suit;
+	private int suit;
+	private int value;
 	
-	private String [] suits = {"Clubs", "Spades", "Diamonds", "Hearts"};
-	private String [] numbers = {"Ace", "2", "3", "4", "5", "6", "7","8",
+	private String [] suits = {"Diamonds", "Clubs", "Spades", "Hearts", };
+	private String [] values = {"Ace", "2", "3", "4", "5", "6", "7", "8", 
 								"9", "10", "Jack", "Queen", "King"};
+	private String [] joker = {"Joker"};
+	private String [] jokerValue = {"Little", "Big"};
 	
 	
-	public Card(int suit, int rank)
+	public Card(int suit, int value)
 	{
-		this.rank = rank;
 		this.suit = suit;
+		this.value = value;
 	}
 
-	public String stringOf()
+	public String outputJoker()
 	{
-		return numbers[rank] + " of " + suits[suit];
+		return value + " " + suit;
 	}
 	
-	
-	public static int getSuit()
+	@Override
+	public String toString()
 	{
-		return suit;
-	}
-	
-	public static int getRank()
-	{
-		return rank;
+		if(value < 12)
+			return values[value] + " " + suits[suit];
+		else if(value < 25)
+			return values[value - 12] + " " + suits[suit];
+		else if(value < 38)
+			return values[value - 25] + " " + suits[suit];
+		else if(value < 51)
+			return values[value - 38] + " " + suits[suit];
+		else
+			return jokerValue[value - 51] + " " + joker[suit];
+
 	}
 }
