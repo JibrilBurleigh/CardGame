@@ -1,59 +1,41 @@
-//TODO: FIX NULL POINTER EXCEPTION ISSUE
-
+//TODO: FINISH MAKING drawCard method
 package com.star.cards;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Deck {
-	private int numberOfSuits = 4;
-	private int numberOfValues = 52;
-	private int jokers = 1;
-	private int jokerSize = 2;
+public class Deck 
+{
+	private int deckSize;
+	private int count;
 	
-	private ArrayList<Card> deck;
-	private ArrayList <Card> hands;
 	
-	public int length = deck.size();
+	private Card card;
+	private ArrayList<Card> cards;
 	
 	public Deck()
 	{
-		deck = new ArrayList<Card>();
-		
-		for(int i = 0; i < numberOfSuits; i++)
-			for(int j =0; j < numberOfValues; j++)
+		deckSize = 51;
+		cards = new ArrayList<Card>();
+		count = 0;
+		for(int i =0; i <=3; i++)
+		{
+			for(int j = 0; j <= 12; j++)
 			{
-				deck.add(new Card(i, j));
+				card = new Card(i, j);
+				cards.add(card);
 			}
-		
-		for(int i = 0; i < jokerSize; i++)
-			for(int j = 0; j < jokers; j++)
-			{
-				deck.add(new Card(i, j));
-			}
-		deck.remove(1);
-		deck.remove(13);
+		}
 	}
 	
-	//draws random card and removes it from deck.
 	public Card drawCard()
 	{
 		Random rand = new Random();
-		int index = rand.nextInt(deck.size());
-		return deck.remove(index);
-	}
-	
-
-	//deals 13 random cards to the player
-	public ArrayList<Card> dealCards()
-	{
-		for(int i = 0; i < 13; i++)
-		{
-			hands.add(drawCard());
-		}
 		
-		return hands;
+		int index = rand.nextInt(count);
+		
+		Card temp = cards.get(index);
+		
 	}
 	
-
 }
