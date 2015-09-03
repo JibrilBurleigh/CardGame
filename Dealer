@@ -1,0 +1,23 @@
+package com.star.dealer;
+
+import java.util.ArrayList;
+
+import com.star.cards.Card;
+import com.star.cards.Deck;
+
+public class Dealer {
+
+	private static ArrayList<Card> hand;
+	private static Deck deck;
+	
+	public static ArrayList deal(String playerName)
+	{
+		
+		for(int i = 0; i < 12; i ++)
+		{
+			hand.add(deck.drawCard());
+		}
+		return hand;
+		
+	}
+}
